@@ -19,7 +19,7 @@ class Headless
       pid = nil if pid.zero?
 
       if pid
-        system("ps aux | grep Xvfb | grep #{pid}")
+        system("ps aux | grep Xvfb | grep #{pid} >/dev/null 2>&1")
       else
         nil
       end
