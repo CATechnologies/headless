@@ -19,12 +19,7 @@ class Headless
       pid = nil if pid.zero?
 
       if pid
-        begin
-          Process.kill(0, pid)
-          pid
-        rescue Errno::ESRCH
-          nil
-        end
+        system("ps aux | grep Xvfb | grep #{pid}")
       else
         nil
       end
